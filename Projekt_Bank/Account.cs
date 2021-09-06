@@ -30,7 +30,7 @@ namespace Projekt_Bank
         }
         public string GetFullName()
         {
-            string fullName = string.Format("{0} {1}", FirstName, LastName);//działa tak samo jak writeline tylko zapisune dane do zmiennej
+            string fullName = string.Format("{0} {1}", FirstName, LastName);
 
             return fullName;
         }
@@ -41,11 +41,11 @@ namespace Projekt_Bank
             return ballance;
         }
 
-        abstract public string TypeName();//metoda abstrakcyjna ma różne definicje w klasach dziedziczących
+        abstract public string TypeName();
 
-        private string generateAccountNumber(int id)//gerowanie numeru konta na podstawie id
+        private string generateAccountNumber(int id)
         {
-            string accountNumber = string.Format("94{0:D10}", id);//94 dalej numer id uzupełniony zerami
+            string accountNumber = string.Format("94{0:D10}", id);
             return accountNumber;
         }
         public void ChangeBalance(decimal value)

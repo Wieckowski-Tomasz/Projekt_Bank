@@ -39,18 +39,7 @@ namespace Projekt_Bank
             return _accounts;
         }
 
-       /* public IEnumerable<Account> GetAllAccountsFor(string firstName, string lastName, long pesel)
-        { 
-            List<Account> customerAccounts = new List<Account>();
-            foreach (Account account in _accounts)
-            {
-                if (account.FirstName == firstName && account.LastName == lastName && account.PESEL == pesel)
-                { 
-                    customerAccounts.Add(account); 
-                } 
-            } 
-            return customerAccounts; 
-        }*/
+       
         public IEnumerable<Account> GetAllAccountsFor(string firstName, string lastName, long pesel)
         {
             return _accounts.Where(x => x.FirstName == firstName && x.LastName == lastName && x.PESEL == pesel);//użucie Linq
