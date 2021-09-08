@@ -42,7 +42,7 @@ namespace Projekt_Bank
        
         public IEnumerable<Account> GetAllAccountsFor(string firstName, string lastName, long pesel)
         {
-            return _accounts.Where(x => x.FirstName == firstName && x.LastName == lastName && x.PESEL == pesel);//użucie Linq
+            return _accounts.Where(x => x.FirstName == firstName && x.LastName == lastName && x.PESEL == pesel);
         }
         public Account GetAccount(string accountNo)
         {
@@ -50,7 +50,7 @@ namespace Projekt_Bank
         }
         public IEnumerable<string> ListOfCustomers() 
         {
-            return _accounts.Select(a => string.Format("Imię: {0} | Nazwisko: {1} | PESEL: {2}", a.FirstName, a.LastName, a.PESEL)).Distinct();
+            return _accounts.Select(a => string.Format("FisrtName: {0} | LastName: {1} | PESEL: {2}", a.FirstName, a.LastName, a.PESEL)).Distinct();
         }
         public void CloseMonth()
         {
@@ -77,9 +77,9 @@ namespace Projekt_Bank
         {
             int id = 1;
 
-            if (_accounts.Any())//czy lista ma jakieś elementy
+            if (_accounts.Any())
             {
-                id = _accounts.Max(x => x.Id) + 1;//wyrażenie lambda zwraca Id dla obiektu x, Max() zwraca największą wartość z listy
+                id = _accounts.Max(x => x.Id) + 1;
             }
 
             return id;

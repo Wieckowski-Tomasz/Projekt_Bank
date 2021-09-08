@@ -10,8 +10,8 @@ namespace Projekt_Bank
     {
         public void Print(Account account)
         {
-            Console.WriteLine("Dane konta: {0}", account.AccountNumber);
-            Console.WriteLine("Imię i nazwisko właściciela: {0}\n", account.GetFullName());
+            Console.WriteLine("Account information: {0}", account.AccountNumber);
+            Console.WriteLine("PESEL number of the owner: {0}\n", account.GetFullName());
         }
     }
 }

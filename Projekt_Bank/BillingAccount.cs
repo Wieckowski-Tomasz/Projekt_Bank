@@ -24,7 +24,7 @@ namespace Projekt_Bank
 
         public override string TypeName()
         {
-            string typeName = "Rozliczeniowe";
+            string typeName = "Billing";
             return typeName;
         }
     }

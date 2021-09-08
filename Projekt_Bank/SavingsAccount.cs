@@ -23,7 +23,7 @@ namespace Projekt_Bank
 
         public override string TypeName()
         {
-            string typeName="Oszczędnościowe";
+            string typeName= "Savings";
             return typeName;
         }
     }

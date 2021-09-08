@@ -8,13 +8,13 @@ namespace Projekt_Bank
 {
     class Printer : IPrinter
     {
-        public void Print(Account account)//tutaj mamy parametr, a nie argument z waaktualną wartością
+        public void Print(Account account)
         {
-            Console.WriteLine("Dane konta: {0}", account.AccountNumber);
-            Console.WriteLine("Rodzaj konta {0}", account.TypeName());
-            Console.WriteLine("Saldo: {0}", account.GetBallance());
-            Console.WriteLine("Imię i nazwisko właściciela: {0}", account.GetFullName());
-            Console.WriteLine("PESEL właściciela: {0}\n", account.PESEL);
+            Console.WriteLine("Account information: {0}", account.AccountNumber);
+            Console.WriteLine("Account type {0}", account.TypeName());
+            Console.WriteLine("Balance: {0}", account.GetBallance());
+            Console.WriteLine("Owner's name and surname: {0}", account.GetFullName());
+            Console.WriteLine("PESEL number of the owner: {0}\n", account.PESEL);
         }
     }
 }

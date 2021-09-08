@@ -20,16 +20,16 @@ namespace Projekt_Bank
         private void PrintMainMenu()
         {
             Console.Clear();
-            Console.WriteLine("Wybierz akcję:");
-            Console.WriteLine("1 - Lista kont klienta");
-            Console.WriteLine("2 - Dodaj konto rozliczeniowe");
-            Console.WriteLine("3 - Dodaj konto oszczędnościowe");
-            Console.WriteLine("4 - Wpłać pieniądze na konto");
-            Console.WriteLine("5 - Wypłać pieniądze z konta");
-            Console.WriteLine("6 - Lista klientów");
-            Console.WriteLine("7 - Wszystkie konta");
-            Console.WriteLine("8 - Zakończ miesiąc");
-            Console.WriteLine("0 - Zakończ");
+            Console.WriteLine("Choose action:");
+            Console.WriteLine("1 - List of customer's accounts");
+            Console.WriteLine("2 - Add a billing account");
+            Console.WriteLine("3 - Add a savings account");
+            Console.WriteLine("4 - Deposit money to account");
+            Console.WriteLine("5 - Withdraw money from account");
+            Console.WriteLine("6 - List of all clients");
+            Console.WriteLine("7 - All accounts");
+            Console.WriteLine("8 - Summarize the month");
+            Console.WriteLine("0 - Finish");
         }
 
 
@@ -68,7 +68,7 @@ namespace Projekt_Bank
                         break;
                     default:
                         Console.Clear();
-                        Console.Write("Nieznane polecenie");
+                        Console.Write("Unknown command");
                         Console.ReadKey();
                         break;
                 }
@@ -77,7 +77,7 @@ namespace Projekt_Bank
         }
         private int SelectedAction()
         {
-            Console.Write("Akcja: ");
+            Console.Write("Action: ");
             string action = Console.ReadLine();
             if (string.IsNullOrEmpty(action))
             {
@@ -90,10 +90,10 @@ namespace Projekt_Bank
             string firstName;
             string lastName;
             string pesel;
-            Console.WriteLine("Podaj dane klienta:");
-            Console.Write("Imię: ");
+            Console.WriteLine("Provide customer details:");
+            Console.Write("First name: ");
             firstName = Console.ReadLine();
-            Console.Write("Nazwisko: ");
+            Console.Write("Lirst name: ");
             lastName = Console.ReadLine();
             Console.Write("PESEL: ");
             pesel = Console.ReadLine();
@@ -105,7 +105,7 @@ namespace Projekt_Bank
             Console.Clear();
             CustomerData data = ReadCustomerData();
             Console.WriteLine();
-            Console.WriteLine("Konta klienta {0} {1} {2}", data.FirstName, data.LastName, data.PESEL);
+            Console.WriteLine("Customer's accounts {0} {1} {2}", data.FirstName, data.LastName, data.PESEL);
 
             foreach (Account account in _accountsManager.GetAllAccountsFor(data.FirstName, data.LastName, data.PESEL))
             {
@@ -119,7 +119,7 @@ namespace Projekt_Bank
             CustomerData data = ReadCustomerData();
             Account billingAccount = _accountsManager.CreateBillingAccount(data.FirstName, data.LastName, data.PESEL);
 
-            Console.WriteLine("Utworzono konto rozliczeniowe:");
+            Console.WriteLine("A billing account has been created:");
             _printer.Print(billingAccount);
             Console.ReadKey();
         }
@@ -129,7 +129,7 @@ namespace Projekt_Bank
             CustomerData data = ReadCustomerData();
             Account savingsAccount = _accountsManager.CreateSavingsAccount(data.FirstName, data.LastName, data.PESEL);
 
-            Console.WriteLine("Utworzono konto oszczędnościowe:");
+            Console.WriteLine("A savings account has been created:");
             _printer.Print(savingsAccount);
             Console.ReadKey();
         }
@@ -138,10 +138,10 @@ namespace Projekt_Bank
             string accountNo;
             decimal value;
 
-            Console.WriteLine("Wpłata pieniędzy");
-            Console.Write("Numer konta: ");
+            Console.WriteLine("Money deposit");
+            Console.Write("Account number: ");
             accountNo = Console.ReadLine();
-            Console.Write("Kwota: ");
+            Console.Write("Amount: ");
             value = decimal.Parse(Console.ReadLine());
             _accountsManager.AddMoney(accountNo, value);
 
@@ -155,10 +155,10 @@ namespace Projekt_Bank
             string accountNo;
             decimal value;
 
-            Console.WriteLine("Wypłata pieniędzy");
-            Console.Write("Numer konta: ");
+            Console.WriteLine("Withdrawing money");
+            Console.Write("Account number: ");
             accountNo = Console.ReadLine();
-            Console.Write("Kwota: ");
+            Console.Write("Amount: ");
             value = decimal.Parse(Console.ReadLine());
             _accountsManager.TakeMoney(accountNo, value);
 
@@ -170,7 +170,7 @@ namespace Projekt_Bank
         private void ListOfCustomers()
         {
             Console.Clear();
-            Console.WriteLine("Lista klientów:");
+            Console.WriteLine("List of all clients:");
             foreach (string customer in _accountsManager.ListOfCustomers())
             {
                 Console.WriteLine(customer);
@@ -180,7 +180,7 @@ namespace Projekt_Bank
         private void ListOfAllAccounts()
         {
             Console.Clear();
-            Console.WriteLine("Wszystkie konta:");
+            Console.WriteLine("All accounts:");
             foreach (Account account in _accountsManager.GetAllAccounts())
             {
                 _printer.Print(account);
@@ -191,7 +191,7 @@ namespace Projekt_Bank
         {
             Console.Clear();
             _accountsManager.CloseMonth();
-            Console.WriteLine("Miesiąc zamknięty");
+            Console.WriteLine("The month is summarized");
             Console.ReadKey();
         }
     }
